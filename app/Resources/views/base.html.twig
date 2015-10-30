@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>{% block title %}BSU EGL{% endblock %}</title>
+	{% block stylesheets %}
+        <link rel="stylesheet" type="text/css" href="{{ asset('index.css') }}"
+        {% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+</head>
+
+  <body>
+    <div id="pageWrapper"><!--Container for the Middle box for all contents. Holds header, body, and footer-->
+
+      <div id="header"><!--Container for the header logo-->
+        <h1>Electronic Gaming League</h1>
+        <br><br>
+        <h2>Ball State University</h2>
+      </div>
+      <div id="newsWrapper"><!--Main container for the content on the page. This containers right under the head container or navigation menu-->
+        <div><!--Container for the navigation bar-->
+          <ul id="menu">
+              {# TODO: Make pages queryable #}
+            <li><a href="{{path('basicHtml_show')}}">Home</a></li>
+            <li><a href="{{path('basicHtml_show', {'page': 'about'})}}">About Us</a></li>
+            <li><a href="{{path('basicHtml_show', {'page': 'games'})}}">Gaming Lab Hours</a></li>
+            <li><a href="{{path('basicHtml_show', {'page': 'events'})}}">Events</a></li>
+            <li><a href="{{path('basicHtml_show', {'page': 'rules'})}}">Lab Rules</a></li>
+            <li><a href="{{path('basicHtml_show', {'page': 'officer'})}}">Officers</a></li>
+            <li><a href="{{path('basicHtml_show', {'page': 'join'})}}">Join Us</a></li>
+            <li><a href="{{path('basicHtml_show', {'page': 'contact'})}}">Contact Us</a></li>
+          </ul>
+        </div>
+        {% block body %}{% endblock %}
+      </div>
+    </div>
+  {% block javascripts %}{% endblock %}
+</body></html>
